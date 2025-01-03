@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\ConfirmPasswordController;
 use App\Http\Controllers\Auth\EmailController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
@@ -46,10 +47,18 @@ Route::middleware('auth')->group(function() {
 
     // Email Verification Routes
 
-    Route::get('/email/verify', [EmailController::class, 'notice'])->name('verification.notice');
+    Route::controller(EmailController::class)->group(function() {
+        Route::get('/email/verify', 'notice')->name('verification.notice');
 
-    Route::get('/email/verify/{id}/{hash}', [EmailController::class, 'verify'])->middleware('signed')->name('verification.verify');
+        Route::get('/email/verify/{id}/{hash}', 'verify')->middleware('signed')->name('verification.verify');
 
-    Route::post('/email/verification-notification', [EmailController::class, 'send'])->middleware('throttle:6,1')->name('verification.send');
+        Route::post('/email/verification-notification', 'send')->middleware('throttle:6,1')->name('verification.send');
+    });
+
+    Route::controller(ConfirmPasswordController::class)->group(function() {
+        Route::get('/confirm-password', 'create')->name('password.confirm');
+
+        Route::post('/confirm-password', 'store')->middleware('throttle:6,1');
+    });
 });
 

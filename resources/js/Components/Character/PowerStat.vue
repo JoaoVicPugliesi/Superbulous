@@ -22,12 +22,12 @@
     });
 
     const calculateStatMarkers = (stat) => {
-    if (stat > 0 && stat <= 20) return 1;
-    if (stat > 20 && stat <= 40) return 2;
-    if (stat > 40 && stat <= 60) return 3;
-    if (stat > 60 && stat <= 80) return 4;
-    if (stat > 80 && stat <= 100) return 5;
-    return 0; 
+        if (stat > 0 && stat <= 20) return 1;
+        if (stat > 20 && stat <= 40) return 2;
+        if (stat > 40 && stat <= 60) return 3;
+        if (stat > 60 && stat <= 80) return 4;
+        if (stat > 80 && stat <= 100) return 5;
+        return 0; 
     };
 </script>
 

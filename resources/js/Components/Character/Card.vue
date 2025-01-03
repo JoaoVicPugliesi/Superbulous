@@ -37,7 +37,7 @@
                         <Appearance :value="height !== '- | 0 cm' ? height : 'Unknown'" icon="arrow-up-right-dots" iconFormat="solid" />
                         <Appearance :value="weight !== '- lb | 0 kg' ? weight : 'Unknown'" icon="weight-scale" iconFormat="solid" />
                     </div>
-                    <p class="text-purple-400 dark:text-zinc-100 text-center md:text-right mt-4 md:mt-0">
+                    <p class="text-zinc-100 text-center md:text-right mt-4 md:mt-0">
                         Publisher: {{ publisher }}
                     </p>
                 </div>

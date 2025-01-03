@@ -7,6 +7,7 @@ use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 
 class HeroService {
+
     use HasCharacters;
     public PendingRequest $api;
 

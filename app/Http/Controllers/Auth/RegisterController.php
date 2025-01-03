@@ -20,7 +20,7 @@ class RegisterController extends Controller
 
         $attributes = $request->validate([
             'avatar' => ['file', 'nullable'],
-            'name' => ['required', 'min:3', 'max:16'],
+            'name' => ['required', 'min:3', 'max:16', 'unique:users'],
             'email' => ['required', 'lowercase', 'email', 'unique:users'],
             'password' => ['required', 'min:8', 'confirmed']
         ]);
